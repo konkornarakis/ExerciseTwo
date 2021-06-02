@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Λίστα</title>
+        <link rel="stylesheet" href="/static/main.css">
+        <script src="https://use.fontawesome.com/0d6323d55e.js"></script>
+        <script src="/static/script_list.js"></script>
+    </head>
+    <body id="body">
+        <img class="bg" src="https://wallpaperaccess.com/full/922661.jpg" alt="bookstore">
+        <main>
+            <h1>Λίστα αγαπημένων</h1>
+            <a id="backtohome" href="/">Αρχική</a>
+            <input type="search" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
+            <section id="results-container">
+            {{#each bookmarks }}
+                <div class="card">
+                    <h3>ISBN: {{this.isbn}}</h3>
+                    <h4>Title: {{this.titleshort}}</h4>
+                    <h4>Author: {{this.author}}</h4>
+                    <h4>Comments: {{this.comments}}</h4>
+                    <form action="/bookmark" method="POST">
+                        <input type="text" value="{{this.isbn}}" name="isbn" style="display: none;">
+                        <div class="buttons-container">
+                            <button type="submit"><i class="fa fa-heart" aria-hidden="true"></i></button>
+                            <a href="/edit/{{this.isbn}}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                        </div>
+                    </form>
+                </div>
+            {{/each}}
+            </section>
+        </main>
+
+        <script>
+            function myFunction() {
+                // Declare variables
+                var input, filter, ul, li, a, i, txtValue;
+                input = document.getElementById('myInput');
+                filter = input.value.toUpperCase();
+                ul = document.getElementById("results-container");
+                li = ul.getElementsByClassName('result-container');
+
+                // Loop through all list items, and hide those who don't match the search query
+                for (i = 0; i < li.length; i++) {
+                    a = li[i].getElementsByTagName("h3")[0];
+                    txtValue = a.textContent || a.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    li[i].style.display = "";
+                    } else {
+                    li[i].style.display = "none";
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>

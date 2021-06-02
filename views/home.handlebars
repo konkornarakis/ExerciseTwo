@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Εργασία 2</title>
+        <link rel="stylesheet" href="/static/main.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js" integrity="sha512-RNLkV3d+aLtfcpEyFG8jRbnWHxUqVZozacROI4J2F1sTaDqo1dPQYs01OMi1t1w9Y2FdbSCDSQ2ZVdAC8bzgAg==" crossorigin="anonymous"></script>
+        <script src="/static/script.js"></script>
+        <script src="https://use.fontawesome.com/0d6323d55e.js"></script>
+    </head>
+    <body id="body">
+      <img class="bg" src="https://wallpaperaccess.com/full/922661.jpg" alt="bookstore">
+
+      <main>
+        <h2 id="MainHeader">Αναζήτηση βιβλίων</h2>
+        <a href="/list">Λίστα</a>
+        <button id="showResponse">Show response</button>
+        <form id="form-author" action="#">
+          <h2>Αναζήτηση βάσει συγγραφέα</h2>
+          <div class="search-wrap">
+            <input type="search" placeholder="Όνομα" id="name">
+            <input type="search" placeholder="Επίθετο" id="lastname">
+            <button type="submit" id="submit-author">Αναζήτηση</button>
+          </div>
+        </form>
+        <form id="form-author-authorid" action="#">
+          <h2>Αναζήτηση βάσει authorid</h2>
+          <div class="search-wrap">
+            <input type="search" placeholder="Αναζήτηση..." id="author-authorid">
+            <button type="submit" id="submit-author-authorid">Αναζήτηση</button>
+          </div>
+        </form>
+        <form id="form-work" action="#">
+          <h2>Αναζήτηση βάσει έργου</h2>
+          <div class="search-wrap">
+            <input type="search" placeholder="Αναζήτηση..." id="work-keyword">
+            <button type="submit" id="submit-work">Αναζήτηση</button>
+          </div>
+        </form>
+        <form id="form-work-workid" action="#">
+          <h2>Αναζήτηση βάσει workid</h2>
+          <div class="search-wrap">
+            <input type="search" placeholder="Αναζήτηση..." id="work-workid">
+            <button type="submit" id="submit-work-workid">Αναζήτηση</button>
+          </div>
+        </form>
+        <form id="form-title" action="#">
+          <h2>Αναζήτηση βάσει τίτλου</h2>
+          <div class="search-wrap">
+            <input type="search" placeholder="Αναζήτηση..." id="title-keyword">
+            <button type="submit" id="submit-title">Αναζήτηση</button>
+          </div>
+        </form>
+        <form id="form-title-isbn" action="#">
+          <h2>Αναζήτηση βάσει ISBN</h2>
+          <div class="search-wrap">
+            <input type="search" placeholder="Αναζήτηση..." id="title-isbn">
+            <button type="submit" id="submit-title-isbn">Αναζήτηση</button>
+          </div>
+        </form>
+        <form id="form-event" action="#">
+          <h2>Αναζήτηση βάσει συμβάντος</h2>
+          <div class="search-wrap">
+            <input type="search" placeholder="Αναζήτηση..." id="event-keyword">
+            <button type="submit" id="submit-event">Αναζήτηση</button>
+          </div>
+        </form>
+        <form id="form-event-eventid" action="#">
+          <h2>Αναζήτηση βάσει eventid</h2>
+          <div class="search-wrap">
+            <input type="search" placeholder="Αναζήτηση..." id="event-eventid">
+            <button type="submit" id="submit-event-eventid">Αναζήτηση</button>
+          </div>
+        </form>
+        <section id="results-container">
+        </section>
+      </main>
+    </body>
+</html>

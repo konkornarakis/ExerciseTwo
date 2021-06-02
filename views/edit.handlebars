@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Επεξεργασία</title>
+        <link rel="stylesheet" href="/static/main.css">
+        <script src="https://use.fontawesome.com/0d6323d55e.js"></script>
+        <script src="/static/script_list.js"></script>
+    </head>
+    <body id="body">
+        <img class="bg" src="https://wallpaperaccess.com/full/922661.jpg" alt="bookstore">
+        <main>
+            <form action="/edit" method="POST">
+                <label for="isbn">ISBN</label>
+                <input type="text" value="{{isbn}}" name="isbn" readonly>
+                
+                <label for="titleshort">Επεξεργασία τίτλου</label>
+                <input id="titleshort" type="text" value="{{titleshort}}" name="titleshort">
+
+                <label for="author">Επεξεργασία συγγραφέα</label>
+                <input id="author" type="text" value="{{author}}" name="author">
+
+                <label for="comments">Σχόλια</label>
+                <input id="comments" type="text" value="{{comments}}" name="comments">
+
+                <div class="buttons-container">
+                    <button type="submit" style="background-color: green;">Υποβολή</button>
+                    <button style="color: black; background-color: red;"><a href="/list">Ακύρωση</a></button>
+                </div>
+            </form>
+        </main>
+    </body>
+</html>
