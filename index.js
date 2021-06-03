@@ -10,6 +10,16 @@ var hbs = exphbs.create({
   }
 });
 
+var sql = require('mssql');
+
+var sqlConfig = {
+    user: 'exercisetwo',
+    password: 'exercisetwo',
+    server: `79.131.185.146`,  
+    database: 'ExerciseTwo',
+    trustServerCertificate: true,
+};
+
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
@@ -46,6 +56,27 @@ app.get('/book/:isbn', (req, res) => {
 //   }
 //   res.redirect('/')
 // })
+
+app.get('/testsql', (req, res) => {
+    (async function () {
+        try {
+            console.log("sql connecting...")
+            let pool = await sql.connect(sqlConfig)
+            let result = await pool.request()
+                .query(`SELECT * FROM [ExerciseTwo].[dbo].[Bookmarks];`)
+            console.log('sql results: ')
+            console.log(result)
+            res.redirect('/')
+        } catch (err) {
+            console.log(err);
+            console.log('failed to connect to db')
+            res.redirect('/')
+        }
+    })()
+})
+
+
+
 
 app.get('/bookmarks', (req, res) => {
   //console.log(bookmarks);
@@ -105,10 +136,9 @@ app.post('/edit', (req, res) => {
   res.redirect('/list')
 })
 
-// app.use(function(err, req, res, next) {
-//   res.status(500);
-//   res.send("Oops, something went wrong.")
-// });
+app.get('*', (req, res) => {
+    res.send('404. Δεν βρέθηκε.')
+})
 
 /**
  * Server Activation
